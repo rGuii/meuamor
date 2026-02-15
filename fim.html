@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido Especial 💖</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: "Poppins", sans-serif; }
+    body {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      min-height:100vh;
+      background: linear-gradient(135deg, #ffe6f0, #ffb6d2);
+      text-align:center;
+      overflow-x:hidden;
+    }
+
+    audio { display:none; }
+
+    h1 {
+      font-size:2rem;
+      color:#ff4f8b;
+      margin-bottom:20px;
+      text-shadow:0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    p {
+      font-size:1.2rem;
+      color:#444;
+      line-height:1.8;
+      max-width:500px;
+      margin-bottom:30px;
+      background: rgba(255,255,255,0.3);
+      padding: 15px 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(6px);
+      box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .buttons {
+      display:flex;
+      gap:20px;
+      flex-wrap: wrap;
+      justify-content:center;
+    }
+
+    .btn {
+      padding:20px 40px;
+      font-size:1.3rem;
+      font-weight:700;
+      border:none;
+      border-radius:25px;
+      cursor:pointer;
+      transition:0.3s;
+      color:white;
+      background: #ff66b2;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #ff4f8b;
+    }
+
+    #noBtn { background:#ccc; color:#333; }
+    #noBtn:hover { background:#999; }
+
+  </style>
+</head>
+<body>
+
+<audio src="musica-pedido.mp3" autoplay loop></audio>
+
+<h1>💖 Um pedido muito especial 💖</h1>
+
+<p>
+Desde que te conheci, cada momento contigo foi mágico…  
+Rir, falar, ver vídeos, tirar fotos, e todos os pequenos instantes que guardo no coração.  
+Agora quero perguntar-te algo muito importante:  
+Queres namorar comigo? 💌
+</p>
+
+<div class="buttons">
+  <button class="btn" id="yesBtn">Sim! 💖</button>
+  <button class="btn" id="noBtn">Não 😢</button>
+</div>
+
+<script>
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+
+  yesBtn.onclick = () => {
+    alert("💖 Yay! Mal posso esperar por nós dois! 💖");
+  }
+
+  noBtn.onclick = () => {
+    alert("😢 Tudo bem… ainda és muito especial para mim!");
+  }
+</script>
+
+</body>
+</html>
 
