@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(to bottom, #ffe6f0, #fff);
+}
+
+.center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+button {
+  padding: 15px 35px;
+  border: none;
+  background: #ff66b2;
+  color: white;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+.hidden {
+  display: none;
+}
+
+.folha {
+  max-width: 700px;
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  animation: aparecer 1.5s ease forwards;
+  position: relative;
+}
+
+.foto {
+  width: 200px;
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.texto {
+  color: #444;
+  line-height: 1.8;
+}
+
+.assinatura {
+  margin-top: 30px;
+  font-style: italic;
+  text-align: right;
+}
+
+.botoes-carta {
+  text-align: right;
+  margin-top: 20px;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}

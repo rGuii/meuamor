@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Nossas Memórias 💖</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff8fb1, #ffd6e8);
+      overflow-x: hidden;
+    }
+
+    audio { display: none; }
+
+    header {
+      text-align: center;
+      padding: 25px 10px;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Carrossel */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 20px 0;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 40px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 20px;
+      scrollbar-width: none;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .item {
+      min-width: 300px;
+      max-width: 300px;
+      background: rgba(255,255,255,0.25);
+      padding: 15px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .item:hover {
+      transform: scale(1.03);
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .item p {
+      margin-top: 15px;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    /* Botões */
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.4);
+      border: none;
+      padding: 15px 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.8rem;
+      color: white;
+      backdrop-filter: blur(6px);
+      transition: 0.3s;
+      z-index: 10;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.7);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    #leftBtn { left: 10px; }
+    #rightBtn { right: 10px; }
+
+    /* Botão final */
+    #continuar {
+      display: none;
+      margin: 30px auto;
+      padding: 15px 30px;
+      background: white;
+      color: #ff4f8b;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 15px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: fit-content;
+    }
+
+    #continuar:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      header { font-size: 1.6rem; }
+      .item { min-width: 260px; max-width: 260px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<audio src="music1.mp3" autoplay loop></audio>
+
+<header>Nossas Memórias 💖</header>
+
+<div class="carousel-container">
+  <button class="btn" id="leftBtn">❮</button>
+  <button class="btn" id="rightBtn">❯</button>
+
+  <div class="carousel" id="carousel">
+
+    <!-- AS TUAS FOTOS -->
+    <div class="item"><img src="fotos/1.jpeg"><p>O dia em que tudo começou.</p></div>
+    <div class="item"><img src="fotos/2.jpeg"><p>O teu sorriso mudou tudo.</p></div>
+    <div class="item"><img src="fotos/3.jpeg"><p>Um dos dias mais felizes.</p></div>
+    <div class="item"><img src="fotos/12.jpeg"><p>As nossas línguas de fora 😂</p></div>
+    <div class="item"><img src="fotos/18.jpeg"><p>As calls infinitas.</p></div>
+    <div class="item"><img src="fotos/21.jpeg"><p>A mais gata de todas.</p></div>
+    <div class="item"><img src="fotos/24.jpeg"><p>A recaída na central 😂</p></div>
+    <div class="item"><img src="fotos/30.jpeg"><p>Uma fofinha nossa 💖</p></div>
+    <div class="item"><img src="fotos/44.jpeg"><p>Os mais gatos da Guarda 💖</p></div>
+    <div class="item"><img src="fotos/60.jpeg"><p>Mais um dia perfeito.</p></div>
+    <div class="item"><img src="fotos/65.jpeg"><p>A minha dona 😤😂</p></div>
+    <div class="item"><img src="fotos/100.jpeg"><p>És linda demais.</p></div>
+    <div class="item"><img src="fotos/101.jpeg"><p>Uma das primeiras calls.</p></div>
+    <div class="item"><img src="fotos/102.jpeg"><p>O primeiro dia juntos.</p></div>
+
+  </div>
+</div>
+
+<!-- BOTÃO FINAL -->
+<a id="continuar" href="fim.html">Continuar 💖</a>
+
+<script>
+  const car = document.getElementById("carousel");
+  const continuar = document.getElementById("continuar");
+
+  document.getElementById("rightBtn").onclick = () => {
+    car.scrollBy({ left: 350, behavior: "smooth" });
+    checkEnd();
+  };
+
+  document.getElementById("leftBtn").onclick = () => {
+    car.scrollBy({ left: -350, behavior: "smooth" });
+    checkEnd();
+  };
+
+  car.addEventListener("scroll", checkEnd);
+
+  function checkEnd() {
+    const maxScroll = car.scrollWidth - car.clientWidth;
+    if (car.scrollLeft >= maxScroll - 10) {
+      continuar.style.display = "block";
+    } else {
+      continuar.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
